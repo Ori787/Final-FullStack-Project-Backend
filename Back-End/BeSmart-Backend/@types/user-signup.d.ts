@@ -3,7 +3,7 @@ name: Iname;
 isBusiness: Boolean;
 address: Iaddress;
 email: string;
-phone: string;
+PhoneNumber: string;
 image: Iimage;
 password: string;
 isAdmin: Boolean;

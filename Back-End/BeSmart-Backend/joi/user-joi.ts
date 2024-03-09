@@ -26,13 +26,13 @@ image: Joi.object<Iimage>({
 
 isBusiness: Joi.boolean().required(),
 
-isAdmin: Joi.boolean().required(),
+isAdmin: Joi.boolean().allow(),
 
 email: Joi.string().min(5).max(200).required(),
 
 password: Joi.string().min(2).max(40).required(),
 
-phone: Joi.string().min(5).max(55).required(),
+PhoneNumber: Joi.string().min(5).max(55).required(),
 
 });
 

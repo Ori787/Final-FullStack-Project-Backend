@@ -19,7 +19,10 @@ import { validateLogin } from "../middleware/validation";
 import { userAuth } from "../middleware/is-user";
 
 import { isAdmin } from "../middleware/is-admin";
+
 import { isAdminOrUser } from "../middleware/is-admin-or-user";
+
+import bcrypt from "bcrypt";
 
 
 const router = Router();
@@ -40,7 +43,7 @@ res.status(400).json({ error: "Bad Request"})
     }
 })
 
-//todo: authorization
+
 router.get("/", isAdmin, async (req, res, next) => {
 
         try {
@@ -57,7 +60,6 @@ router.get("/", isAdmin, async (req, res, next) => {
       });
 
 
-      //todo: authorization
 router.get("/:_id", isAdminOrUser, async (req, res, next) => {
         try{
 const { _id } = req.params;
@@ -71,20 +73,29 @@ next(e);
       });
 
       
-router.post("/login", validateLogin, (req, res, next) => {
+router.post("/login", validateLogin, async (req, res, next) => {
+try {
+
+  const { email, password } = req.body as {email: string, password: string}
+
+
+    const user = await UserModel.findOne({ email })
 
     const payload : Ijwtpayload = {
-        email: req.body.email,
-        name: req.body.name,
-    };
+      email: req.body.email,
+      name: req.body.name,
+  };
 
+    if (user && (await bcrypt.compare(password, user.password))) {
     const token = auth.generateJWT(payload);
+      res.json(token);
+    }
 
- res.json(token);
+  } catch (err) {
+    next (err)
+  };
+});
 
-})
-
-//todo: authorization
 router.put("/:_id", userAuth, async (req, res, next) => {
   req.body.password = await auth.hashPassword(req.body.password);
     try{

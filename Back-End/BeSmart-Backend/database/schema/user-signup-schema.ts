@@ -17,7 +17,7 @@ const userSignUpSchema = new Schema<Iuser>({
         minlength: 5,
         maxlength: 200,
     },
-    phone: {
+    PhoneNumber: {
         type: String,
         required: true,
         minlength: 10,
