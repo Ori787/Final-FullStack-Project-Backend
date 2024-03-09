@@ -16,7 +16,7 @@ country: string;
 city: string;
 street: string;
 houseNumber: Number;
-zip?: string;
+zip?: Number;
 }
 
 type Iimage = {

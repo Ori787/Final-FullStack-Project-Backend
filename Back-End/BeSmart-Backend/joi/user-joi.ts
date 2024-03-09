@@ -14,7 +14,7 @@ address: Joi.object<Iaddress>({
     city: Joi.string().min(2).max(100).required(),
     state: Joi.string().min(0).max(80).allow(""),
     street: Joi.string().min(2).max(100).required(),
-    zip: Joi.string().min(0).max(100).allow(""),
+    zip: Joi.number().min(0).max(100).allow(""),
     houseNumber: Joi.number().min(1).max(60).required(),
     country: Joi.string().min(2).max(100).required(),
 }),
