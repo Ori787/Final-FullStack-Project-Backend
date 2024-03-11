@@ -81,18 +81,22 @@ try {
 
     const user = await UserModel.findOne({ email })
 
+
+    if (!user || !(await bcrypt.compare(password, user.password))) {
+  return res.status(401).json({message: "Invalid password or email. please try again."})
+    };
+
     const payload : Ijwtpayload = {
       email: req.body.email,
-      name: req.body.name,
   };
 
-    if (user && (await bcrypt.compare(password, user.password))) {
-    const token = auth.generateJWT(payload);
-      res.json(token);
-    }
+  const token = auth.generateJWT(payload);
+
+  res.status(200).json({ token });
 
   } catch (err) {
-    next (err)
+console.error("Error", err)
+res.status(501).json({message: "Internal server error"})
   };
 });
 
