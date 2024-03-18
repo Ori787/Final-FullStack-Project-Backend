@@ -4,15 +4,11 @@ import { UserModel } from "../model/user-signup-model";
 
 const extractToken = (req: Request) => {
   const authHeader = req.header("Authorization");
-
-  if (
-    authHeader &&
-    authHeader.length > 7 &&
-    authHeader.toLowerCase().startsWith("bearer ")
-  ) {
-    return authHeader.substring(7);
+  if (authHeader && authHeader.length > 7 && authHeader.toLowerCase().startsWith("bearer ")) {
+    return authHeader.substring(8, authHeader.length-1);
   }
-console.log("token is missing in Authorization header", 400);
+  console.log("Token is missing in Authorization header");
+  throw new Error("Token is missing in Authorization header");
 };
 
 const isAdmin: RequestHandler = async (req, res, next) => {

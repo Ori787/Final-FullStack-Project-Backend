@@ -4,11 +4,12 @@ import jwt from "jsonwebtoken";
 
 import bcrypt from 'bcrypt';
 
+const secret = "zfiaIUSf23mSZ5skW1qJ/0mfCgLrtT2+jSX7ahsfnu!%!131A0%&Yl";
+
 
 const authService = {
 generateJWT: (payload: Ijwtpayload) => {
-    const secret = "zfiaIUSf23mSZ5skW1qJ/0mfCgLrtT2+jSX7ahsfnu!%!131A0%&Yl";
-    return jwt.sign(payload, secret)
+    return jwt.sign(payload, secret, {expiresIn: '24h'});
   },
 
 hashPassword: async (userPassword: string) => {
@@ -22,7 +23,7 @@ return hashedPassword;
   },
 
 verifyJWT: (token: any) => {
-  const secret = "zfiaIUSf23mSZ5skW1qJ/0mfCgLrtT2+jSX7ahsfnu!%!131A0%&Yl";
+  
 
   const payload = jwt.verify(token, secret);
 

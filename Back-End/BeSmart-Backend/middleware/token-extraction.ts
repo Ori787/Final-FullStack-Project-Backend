@@ -22,7 +22,7 @@ const validateToken: RequestHandler = async (req, res, next) => {
   try {
     const token = extractToken(req);
 
-    const { email, name } = auth.verifyJWT(token);
+    const { email } = auth.verifyJWT(token);
     const user = await UserModel.findOne({ email });
     if (!user) console.log("User does not exist", 401);
     next();

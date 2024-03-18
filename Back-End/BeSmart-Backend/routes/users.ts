@@ -87,7 +87,8 @@ try {
     };
 
     const payload : Ijwtpayload = {
-      email: req.body.email,
+      email: user.email,
+      isAdmin: user.isAdmin,
   };
 
   const token = auth.generateJWT(payload);

@@ -1,12 +1,12 @@
 type Iuser = {
 name: Iname;
-isBusiness: Boolean;
+isBusiness: boolean;
 address: Iaddress;
 email: string;
 PhoneNumber: string;
 image: Iimage;
 password: string;
-isAdmin: Boolean;
+isAdmin: boolean;
 _id: string,
 }; 
 
@@ -37,6 +37,7 @@ type Ilogin = {
 
   type Ijwtpayload = {
     email: String;
+    isAdmin: boolean;
   };
 
 export { Iaddress, Iimage, Iname, Iuser, Ilogin, Ijwtpayload };
