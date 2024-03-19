@@ -20,6 +20,8 @@ to run the server, you must run the following commands in your terminal.
 
 Now the server is running and the data will be rendered within the UI.
 
+** In order to find the mongoDB atlas connection string go to config folder --> prod.env.
+
 
 
 
