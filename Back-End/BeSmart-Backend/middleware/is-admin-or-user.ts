@@ -22,9 +22,7 @@ const isAdminOrUser: RequestHandler = async (req, res, next) => {
 
     if (user?.isAdmin) return next();
 
-    res
-      .status(401)
-      .json({ message: "Only admin/The id must belong to the user" });
+    res.status(401).json({ message: "Only admin/The id must belong to the user" });
   } catch (e) {
     next(e);
   }

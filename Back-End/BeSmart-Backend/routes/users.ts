@@ -101,7 +101,7 @@ res.status(501).json({message: "Internal server error"})
   };
 });
 
-router.put("/:_id", userAuth, async (req, res, next) => {
+router.put("/:_id", isAdminOrUser, async (req, res, next) => {
   req.body.password = await auth.hashPassword(req.body.password);
     try{
         const { _id } = req.params;
