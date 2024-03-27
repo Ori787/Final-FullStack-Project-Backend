@@ -2,12 +2,6 @@ import { Router } from "express";
 
 import { UserModel } from "../model/user-signup-model";
 
-import { Iuser } from "../@types/user-signup";
-
-import { Ilogin } from "../@types/user-signup";
-
-import { validateUser } from "../services/user-service";
-
 import { auth } from "../services/auth-service";
 
 import { Ijwtpayload } from "../@types/user-signup";

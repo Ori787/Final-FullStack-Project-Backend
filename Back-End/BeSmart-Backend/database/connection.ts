@@ -2,17 +2,15 @@ import mongoose from "mongoose";
 
 import { initDB } from "./initDB";
 
-import 'dotenv/config';
-
 
 
 const connect = async () => {
   try {
-// I didn't use the DB_CONNECTION_STRING defined in the .env file because of a temporary problem.
-   const connectionString = 'mongodb://localhost:27017/nodeprojectdev';
+
+   const connectionString = process.env.DB_CONNECTION_STRING;
 
     if (!connectionString) {
- console.error("DB_CONNECTION_STRING IS NOT DEFINED IN your .env file");
+ console.error("something went wrong");
       return;
     }
 
