@@ -25,9 +25,9 @@ alt: string;
 }
 
 type Iname = {
-    first: String;
-    middle?: String;
-    last: String;
+    first: string;
+    middle?: string;
+    last: string;
 }
 
 type Ilogin = {
@@ -36,7 +36,7 @@ type Ilogin = {
   };
 
   type Ijwtpayload = {
-    email: String;
+    email: string;
     isAdmin: boolean;
   };
 
