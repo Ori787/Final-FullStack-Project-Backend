@@ -6,7 +6,6 @@ import { initDB } from "./initDB";
 
 const connect = async () => {
   try {
-
    const connectionString = process.env.DB_CONNECTION_STRING;
 
     if (!connectionString) {
