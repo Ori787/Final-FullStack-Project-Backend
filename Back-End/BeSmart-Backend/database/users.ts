@@ -17,7 +17,7 @@ export const users = [
         "alt": "user-profile",
         "url": "https://picsum.photos/200/300"
       },
-      "phone": "101-8123091",
+      "PhoneNumber": "101-8123091",
       "email": "paul@walker.com",
       "password": "$2b$12$4DvTND2MogN1unDiEjgxF.XbeUh8hevRzf.IojAHv4H6Gt6cMaXem",
       "isAdmin": false,
@@ -41,7 +41,7 @@ export const users = [
         "alt": "user-profile",
         "url": "https://picsum.photos/200/300"
       },
-      "phone": "050-8123091",
+      "PhoneNumber": "050-8123091",
       "email": "admin@gmail.com",
       "password": "$2b$12$JLz5of1Ob2HMCBxb5BFONeqrgtumAqkeGuVe8A5aObj8ThbicO/Ne",
       "isAdmin": true,
@@ -65,7 +65,7 @@ export const users = [
           "alt": "user-avatar",
           "url": "https://picsum.photos/200/300"
         },
-        "phone": "555-9876543",
+        "PhoneNumber": "555-9876543",
         "email": "john.smith@example.com",
         "password": "$2b$12$X4IyIqt2eRVzUBq.OqYk0OQc94ALvbvS7d6E2SaJ0op4QwFnZaK5y",
         "isAdmin": false,
